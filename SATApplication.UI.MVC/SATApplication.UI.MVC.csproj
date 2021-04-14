@@ -168,9 +168,14 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\CoursesController.cs" />
+    <Compile Include="Controllers\EnrollmentsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\RolesAdminController.cs" />
+    <Compile Include="Controllers\ScheduledClassStatusController.cs" />
+    <Compile Include="Controllers\StudentsController.cs" />
+    <Compile Include="Controllers\StudentStatusController.cs" />
     <Compile Include="Controllers\UserAdminController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -399,6 +404,37 @@
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <None Include="packages.config" />
     <Content Include="Views\Shared\Original_Layout.cshtml" />
+    <Content Include="Views\Students\Create.cshtml" />
+    <Content Include="Views\Students\Delete.cshtml" />
+    <Content Include="Views\Students\Details.cshtml" />
+    <Content Include="Views\Students\Edit.cshtml" />
+    <Content Include="Views\Students\Index.cshtml" />
+    <Content Include="Views\Courses\Create.cshtml" />
+    <Content Include="Views\Courses\Delete.cshtml" />
+    <Content Include="Views\Courses\Details.cshtml" />
+    <Content Include="Views\Courses\Edit.cshtml" />
+    <Content Include="Views\Courses\Index.cshtml" />
+    <Content Include="Views\StudentStatus\Create.cshtml" />
+    <Content Include="Views\StudentStatus\Delete.cshtml" />
+    <Content Include="Views\StudentStatus\Details.cshtml" />
+    <Content Include="Views\StudentStatus\Edit.cshtml" />
+    <Content Include="Views\StudentStatus\Index.cshtml" />
+    <Content Include="Views\ScheduledClassStatus\Create.cshtml" />
+    <Content Include="Views\ScheduledClassStatus\Delete.cshtml" />
+    <Content Include="Views\ScheduledClassStatus\Details.cshtml" />
+    <Content Include="Views\ScheduledClassStatus\Edit.cshtml" />
+    <Content Include="Views\ScheduledClassStatus\Index.cshtml" />
+    <Content Include="Views\Enrollments\Create.cshtml" />
+    <Content Include="Views\Enrollments\Delete.cshtml" />
+    <Content Include="Views\Enrollments\Details.cshtml" />
+    <Content Include="Views\Enrollments\Edit.cshtml" />
+    <Content Include="Views\Enrollments\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SATApplication.DATA.EF\SATApplication.DATA.EF.csproj">
+      <Project>{ece7655c-7fe8-40e4-a371-2203c40f79e4}</Project>
+      <Name>SATApplication.DATA.EF</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
