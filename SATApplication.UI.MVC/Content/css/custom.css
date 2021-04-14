@@ -1,0 +1,12 @@
+﻿.right {
+    width: auto;
+}
+.right ul li a:hover {
+    color: #f00;
+}
+.right ul li a {
+    color: white;
+    padding-left: 1em;
+    padding-right: 1em;
+
+}
