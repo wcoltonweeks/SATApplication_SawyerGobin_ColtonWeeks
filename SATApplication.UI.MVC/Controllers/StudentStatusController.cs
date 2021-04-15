@@ -10,6 +10,7 @@ using SATApplication.DATA.EF;
 
 namespace SATApplication.UI.MVC.Controllers
 {
+    [Authorize(Roles = ("Admin"))]
     public class StudentStatusController : Controller
     {
         private SATApplicationEntities db = new SATApplicationEntities();

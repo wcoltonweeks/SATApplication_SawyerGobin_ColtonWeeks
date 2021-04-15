@@ -29,6 +29,9 @@
     <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
+
+    @RenderSection("datatablesCSS", false)
+
 </head>
 <!-- body -->
 <body class="main-layout">
@@ -40,15 +43,13 @@
     <!-- top -->
     <!-- header -->
     <header class="header-area">
-        <div class="left">
-            <a href="Javascript:void(0)"><i class="fa fa-search" aria-hidden="true"></i></a>
-        </div>
+
         <div class="right">
             @Html.Partial("_LoginPartial")
         </div>
         <div class="container">
             <div class="row d_flex">
-                <div class="col-sm-3 logo_sm">
+                <div class="col-sm-3 logo_sm"> 
                     <div class="logo">
                         <a href="@Url.Action("Index", "Home")"></a>
                     </div>
@@ -63,10 +64,23 @@
                                 <li><a href="@Url.Action("Contact", "Home")">Contact Us</a></li>
                                 @if (Request.IsAuthenticated && User.IsInRole("Admin"))
                                 {
-                                    <li>@Html.ActionLink("RolesAdmin", "Index", "RolesAdmin")</li>
-                                    <li>@Html.ActionLink("UsersAdmin", "Index", "UsersAdmin")</li>
+                                    <li>@Html.ActionLink("Roles Admin", "Index", "RolesAdmin")</li>
+                                    <li>@Html.ActionLink("Users Admin", "Index", "UsersAdmin")</li>
+                                    <li>@Html.ActionLink("Courses", "Index", "Courses")</li>
+                                    <li>@Html.ActionLink("Student Statuses", "Index", "StudentStatus")</li>
                                 }
+
+                                @if(User.IsInRole("Admin") || User.IsInRole("Scheduling"))
+                                {
+                                    <li>@Html.ActionLink("Enrollments", "Index", "Enrollments")</li>
+                                    <li>@Html.ActionLink("Scheduled Classes", "Index", "ScheduledClasses")</li>
+                                    <li>@Html.ActionLink("Students", "Index", "Students")</li>
+                                }
+
+
+
                             </ul>
+
                             <button class="nav-toggler">
                                 <span></span>
                             </button>
@@ -83,7 +97,7 @@
     <!--  footer -->
     <footer>
         <div class="footer">
- 
+
             <div class="copyright">
                 <div class="container">
                     <div class="row">

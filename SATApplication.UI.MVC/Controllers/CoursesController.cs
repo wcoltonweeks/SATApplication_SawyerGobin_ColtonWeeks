@@ -10,11 +10,13 @@ using SATApplication.DATA.EF;
 
 namespace SATApplication.UI.MVC.Controllers
 {
+    [Authorize(Roles = ("Admin"))]
     public class CoursesController : Controller
     {
         private SATApplicationEntities db = new SATApplicationEntities();
 
         // GET: Courses
+        
         public ActionResult Index()
         {
             return View(db.Courses.ToList());

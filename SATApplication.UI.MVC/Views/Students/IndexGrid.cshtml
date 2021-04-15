@@ -1,0 +1,45 @@
+﻿@model IEnumerable<SATApplication.DATA.EF.Student>
+
+@{
+    ViewBag.Title = "Students | Grid Layout";
+}
+
+
+
+<h2>@ViewBag.Title</h2>
+
+<p>
+    @Html.ActionLink("Add Student", "Create")
+</p>
+
+
+
+<div class="row d_flex">
+
+    @foreach (var item in Model)
+    {
+
+
+        <div class=" col-md-4">
+            <div class="latest text_align_center">
+                <figure><img src="~/Content/images/students/@item.PhotoUrl" alt="@item.StudentID" /></figure>
+                <a class="read_more" href="@Url.Action("Details", "Students", new { id = item.StudentID })">Student Details</a>
+                <div class="nostrud">
+                    <h3>@item.FullName</h3>
+                    <p>
+                        <ul>
+                            <li>Major: @item.Major</li>
+                            <li>Email: @item.Email</li>
+                            <li>
+                                @Html.ActionLink("Edit", "Edit", new { id = item.StudentID }) |
+                                @Html.ActionLink("Details", "Details", new { id = item.StudentID }) |
+                                @Html.ActionLink("Delete", "Delete", new { id = item.StudentID })
+                            </li>
+                        </ul>
+                    </p>
+                </div>
+            </div>
+        </div>
+    }
+
+</div>

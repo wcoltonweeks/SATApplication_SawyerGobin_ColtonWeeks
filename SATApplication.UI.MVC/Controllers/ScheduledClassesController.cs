@@ -15,6 +15,7 @@ namespace SATApplication.UI.MVC.Controllers
         private SATApplicationEntities db = new SATApplicationEntities();
 
         // GET: ScheduledClasses
+        [Authorize(Roles = ("Admin, Scheduling"))]
         public ActionResult Index()
         {
             var scheduledClasses = db.ScheduledClasses.Include(s => s.Cours).Include(s => s.ScheduledClassStatus);
@@ -22,6 +23,7 @@ namespace SATApplication.UI.MVC.Controllers
         }
 
         // GET: ScheduledClasses/Details/5
+        [Authorize(Roles = ("Admin, Scheduling"))]
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -37,6 +39,7 @@ namespace SATApplication.UI.MVC.Controllers
         }
 
         // GET: ScheduledClasses/Create
+        [Authorize(Roles = ("Admin, Scheduling"))]
         public ActionResult Create()
         {
             ViewBag.CourseID = new SelectList(db.Courses, "CourseID", "CourseName");
@@ -49,6 +52,7 @@ namespace SATApplication.UI.MVC.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = ("Admin, Scheduling"))]
         public ActionResult Create([Bind(Include = "ScheduledClassID,CourseID,StartDate,EndDate,InstructorName,Location,SCSID")] ScheduledClass scheduledClass)
         {
             if (ModelState.IsValid)
@@ -64,6 +68,7 @@ namespace SATApplication.UI.MVC.Controllers
         }
 
         // GET: ScheduledClasses/Edit/5
+        [Authorize(Roles = ("Admin, Scheduling"))]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -85,6 +90,7 @@ namespace SATApplication.UI.MVC.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = ("Admin, Scheduling"))]
         public ActionResult Edit([Bind(Include = "ScheduledClassID,CourseID,StartDate,EndDate,InstructorName,Location,SCSID")] ScheduledClass scheduledClass)
         {
             if (ModelState.IsValid)
@@ -99,6 +105,7 @@ namespace SATApplication.UI.MVC.Controllers
         }
 
         // GET: ScheduledClasses/Delete/5
+        [Authorize(Roles = ("Admin"))]
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -116,6 +123,7 @@ namespace SATApplication.UI.MVC.Controllers
         // POST: ScheduledClasses/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = ("Admin"))]
         public ActionResult DeleteConfirmed(int id)
         {
             ScheduledClass scheduledClass = db.ScheduledClasses.Find(id);
