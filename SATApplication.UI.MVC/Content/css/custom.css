@@ -10,3 +10,70 @@
     padding-right: 1em;
 
 }
+.site-navbar ul {
+
+}
+.site-navbar ul li {
+    padding-right: 60px;
+}
+
+span.red {
+    color: red;
+    font-weight: bold;
+}
+
+span.red:hover {
+    color: white;
+}
+
+.mainPageCard {
+    margin-top: 1.5em;
+}
+
+main {
+    min-height: 75.5vh;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    max-width: 84%;
+    margin-left: 8%;
+}
+
+.btn-default {
+    background-color: red;
+}
+
+#navMain {
+margin-left: -160px;
+}
+
+.copyright {
+    margin-top: 15px;
+}
+
+.footer {
+    padding-top: 1px;
+}
+.latest .read_more {
+    position: relative;
+    margin-top: 2em;
+}
+h2{
+    text-align: center;
+    display: block;
+    padding: 2em;
+    padding-bottom: 1em;
+    margin-bottom: 1em;
+    font-size: 34px;
+    border-bottom: 5px double red;
+}
+.nostrud h3{
+    padding:1em;
+}
+.nostrud ul{
+    padding-bottom: 4em;
+}
+
+.photog h4 {
+    color:white;
+    font-size: 24px;
+}

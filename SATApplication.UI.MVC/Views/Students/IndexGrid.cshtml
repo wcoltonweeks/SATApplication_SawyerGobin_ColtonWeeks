@@ -1,7 +1,7 @@
 ﻿@model IEnumerable<SATApplication.DATA.EF.Student>
 
 @{
-    ViewBag.Title = "Students | Grid Layout";
+    ViewBag.Title = "Students";
 }
 
 
@@ -9,9 +9,11 @@
 <h2>@ViewBag.Title</h2>
 
 <p>
-    @Html.ActionLink("Add Student", "Create")
-</p>
+    @Html.ActionLink("Add Student", "Create", null, new { @class = "btn btn-default" })
 
+    @Html.ActionLink("List View", "Index", null, new { @class = "btn btn-default" })
+</p>
+<br />
 
 
 <div class="row d_flex">
@@ -26,7 +28,7 @@
                 <a class="read_more" href="@Url.Action("Details", "Students", new { id = item.StudentID })">Student Details</a>
                 <div class="nostrud">
                     <h3>@item.FullName</h3>
-                    <p>
+                    
                         <ul>
                             <li>Major: @item.Major</li>
                             <li>Email: @item.Email</li>
@@ -35,7 +37,7 @@
                                 @Html.ActionLink("Delete", "Delete", new { id = item.StudentID })
                             </li>
                         </ul>
-                    </p>
+                    
                 </div>
             </div>
         </div>

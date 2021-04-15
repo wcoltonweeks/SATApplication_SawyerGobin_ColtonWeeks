@@ -1,13 +1,13 @@
 ﻿@model IEnumerable<SATApplication.DATA.EF.StudentStatus>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Student Statuses";
 }
 
-<h2>Index</h2>
+<h2>@ViewBag.Title</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Add New Student Status", "Create", null, new { @class = "btn btn-default" })
 </p>
 <table class="table">
     <tr>
