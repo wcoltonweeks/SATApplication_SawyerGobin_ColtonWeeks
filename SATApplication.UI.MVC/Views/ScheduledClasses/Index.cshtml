@@ -64,8 +64,11 @@
                 </td>
                 <td>
                     @Html.ActionLink("Edit", "Edit", new { id = item.ScheduledClassID }) |
-                    @Html.ActionLink("Details", "Details", new { id = item.ScheduledClassID }) |
-                    @Html.ActionLink("Delete", "Delete", new { id = item.ScheduledClassID })
+                    @Html.ActionLink("Details", "Details", new { id = item.ScheduledClassID })
+                    @if (User.IsInRole("Admin"))
+                    {
+                        @Html.ActionLink("Delete", "Delete", new { id = item.ScheduledClassID })
+                    }
                 </td>
             </tr>
 

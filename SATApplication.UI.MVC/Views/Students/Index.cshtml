@@ -11,9 +11,11 @@
 <h2>@ViewBag.Title</h2>
 
 <p>
-    @Html.ActionLink("Add Student", "Create", null, new { @class = "btn btn-default" })
-    
-    @Html.ActionLink("Grid View", "IndexGrid", null, new { @class = "btn btn-default" })
+    @if (User.IsInRole("Admin"))
+    {
+        @Html.ActionLink("Add Student", "Create", null, new { @class = "btn btn-default" })
+    }
+     @Html.ActionLink("Grid View", "IndexGrid", null, new { @class = "btn btn-default" })
 </p>
 <br />
 <table class="table" id="dataTable">
@@ -95,9 +97,10 @@
                     @Html.DisplayFor(modelItem => item.StudentStatus.SSName)
                 </td>
                 <td>
-                    @Html.ActionLink("Edit", "Edit", new { id = item.StudentID }) |
-                    @Html.ActionLink("Details", "Details", new { id = item.StudentID }) |
-                    @Html.ActionLink("Delete", "Delete", new { id = item.StudentID })
+                    @if (User.IsInRole("Admin"))
+                    {@Html.ActionLink("Edit", "Edit", new { id = item.StudentID })} 
+                    @Html.ActionLink("Details", "Details", new { id = item.StudentID }) 
+                    @if (User.IsInRole("Admin")){@Html.ActionLink("Delete", "Delete", new { id = item.StudentID })}
                 </td>
             </tr>
         }
