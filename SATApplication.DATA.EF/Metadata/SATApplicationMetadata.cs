@@ -28,7 +28,7 @@ namespace SATApplication.DATA.EF//.Metadata
         [StringLength(25, ErrorMessage = "* Must not exceed 25 characters")]
         public string City { get; set; }
         [DisplayFormat(NullDisplayText = "[N/A]")]
-        [StringLength(2, ErrorMessage ="* Must not exceed 2 characters (eg. \"MO\"")]
+        [StringLength(2, ErrorMessage ="* Must not exceed 2 characters (eg. \"MO\")")]
         [Display(Name ="State Code")]
         public string State { get; set; }
         [DisplayFormat(NullDisplayText = "[N/A]")]
@@ -134,6 +134,7 @@ namespace SATApplication.DATA.EF//.Metadata
         public int ScheduledClassID { get; set; }
         [Required(ErrorMessage ="* Emrollment Date is required")]
         [DisplayFormat(DataFormatString = "{0:d}", ApplyFormatInEditMode = true)]
+        [Display(Name = "Enrollment Date")]
         public System.DateTime EnrollmentDate { get; set; }
     }
     [MetadataType(typeof(EnrollmentMetadata))]
@@ -161,10 +162,12 @@ namespace SATApplication.DATA.EF//.Metadata
         public int SSID { get; set; }
         [StringLength(30, ErrorMessage = "* Must not exceed 30 chracters")]
         [Required(ErrorMessage ="* Student Status Name is required")]
+        [Display(Name ="Student Status")]
         public string SSName { get; set; }
         [StringLength(250, ErrorMessage = "* Must not exceed 250 chracters")]
         [DisplayFormat(NullDisplayText = "[N/A]")]
         [UIHint("MultilineText")]
+        [Display(Name ="Status Description")]
         public string SSDescription { get; set; }
     }
     [MetadataType(typeof(StudentStatusMetadata))]
