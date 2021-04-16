@@ -9,8 +9,10 @@
 <h2>@ViewBag.Title</h2>
 
 <p>
-    @Html.ActionLink("Add Student", "Create", null, new { @class = "btn btn-default" })
-
+    @if (User.IsInRole("Admin"))
+    {
+        @Html.ActionLink("Add Student", "Create", null, new { @class = "btn btn-default" })
+    }
     @Html.ActionLink("List View", "Index", null, new { @class = "btn btn-default" })
 </p>
 <br />
@@ -28,16 +30,21 @@
                 <a class="read_more" href="@Url.Action("Details", "Students", new { id = item.StudentID })">Student Details</a>
                 <div class="nostrud">
                     <h3>@item.FullName</h3>
-                    
-                        <ul>
-                            <li>Major: @item.Major</li>
-                            <li>Email: @item.Email</li>
-                            <li>
-                                @Html.ActionLink("Edit", "Edit", new { id = item.StudentID }) |
-                                @Html.ActionLink("Delete", "Delete", new { id = item.StudentID })
-                            </li>
-                        </ul>
-                    
+
+                    <ul>
+                        <li>Major: @item.Major</li>
+                        <li>Email: @item.Email</li>
+                        @if (User.IsInRole("Admin"))
+                        {
+                        <li>
+                            @Html.ActionLink("Edit", "Edit", new { id = item.StudentID }) |
+                            @Html.ActionLink("Delete", "Delete", new { id = item.StudentID })
+                        </li>
+                        }
+                        
+
+                    </ul>
+
                 </div>
             </div>
         </div>
